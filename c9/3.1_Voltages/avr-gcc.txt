@@ -1,0 +1,5 @@
+avr-gcc -mmcu=atmega644p -DF_CPU=12000000 -Wall -Os -u vfprintf -lprintf_flt -lm voltage.c debug.h -o voltage.elf 
+avr-objcopy -O ihex voltage.elf voltage.hex
+avrdude -c usbasp -p m644p -U flash:w:voltage.hex
+
+
